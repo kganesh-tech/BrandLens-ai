@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BrandLens</title>
+        <link rel="stylesheet" href="dashboard.css">
+        <script src="https://unpkg.com/lucide@latest"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="brand-logo">
+                <i data-lucide="shield-check"></i>
+                <div>
+            <h1 id="logo">BrandLens</h1>
+            <p id="para">Brand Governance AI</p>
+            </div>
+            </div>
+
+            <nav class="sidebar">
+                <h1>WORKSPACE</h1>
+                <section class="sidebar-items">
+                    <a href="#" id="reviewlink">  <i data-lucide="file-check"></i><span>Review</span></a>
+                    <a href="#" id="reviewhistorylink"><i data-lucide="history"></i>
+    <span>Review History</span></a>
+                </section>
+
+                <h1>KNOWLEDGE</h1>
+                <section class="sidebar-items">
+                    <a href="#" id="brandknowledgelink">
+    <i data-lucide="database"></i>
+    <span>Brand Knowledge</span>
+</a>
+                    
+                </section>
+                <h1>INSIGHTS</h1>
+
+<section class="sidebar-items">
+    <a href="#" id="governanceinsightslink">
+        <i data-lucide="bar-chart-3"></i>
+        <span>Governance Insights</span>
+    </a>
+</section>
+
+            <div class="bottom">
+                <h1>Demo Workspace</h1>
+            </div>
+            </nav>
+
+            <nav class="navbar">
+                <section class="profile">
+                    <i data-lucide="user"></i>
+                </section>
+            </nav>
+
+            <div class="mainContent" id="maincontent"></div>
+        </div>
+        
+        <script src="dashboard.js"></script>
+         <script>
+            lucide.createIcons();
+        </script>
+    </body>
+</html>
