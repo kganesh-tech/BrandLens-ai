@@ -320,7 +320,38 @@ app.get("/knowledge/counts", async (req, res) => {
 
     res.json(result);
 });
+app.get("/reviews" , async(req,res) => {
+    
+    const data = await reviews.find({} , 
+        {
+            projection: {
+                _id: 0,
+                content: 1,
+                score: 1,
+                createdAt: 1
+            }
+        }).toArray();
 
+    
+   console.log(data);
+
+   res.json(data);
+    
+});
+app.get("/knowledge/history" , async(req,res) => {
+    const Knowledge = await knowledge.find( {} , {
+        projection: {
+            _id: 0,
+            Content: 1,
+            Title: 1,
+            Type: 1
+        }
+    }).toArray();
+
+    console.log("KNOWLEDGE:" , Knowledge);
+
+    res.json(Knowledge);
+})
 connectDB();
 loadEmbeddingModel();
 createKnowledgeCollection();

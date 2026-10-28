@@ -763,6 +763,42 @@ workingcard.appendChild(workingpara);
 workingcard.appendChild(flowcontainer);
 
 knowledgehistorycard.appendChild(historyheading);
+ fetch("http://localhost:3000/knowledge/history" , {
+    method : "GET"
+ })
+ .then(res => res.json())
+ .then(data => {
+    console.log(data);
+
+    data.forEach(knowledge => {
+        const cards =
+        document.createElement("div");
+
+        cards.className = "knowledge-history-item";
+
+        const knowledgecontent =
+        document.createElement("p");
+
+        knowledgecontent.textContent = `content : ${knowledge.Content}`;
+
+        const knowledgeType =
+        document.createElement("p");
+
+        knowledgeType.textContent = `Type: ${knowledge.Type}`;
+
+        const knowledgetitle =
+        document.createElement("p");
+
+        knowledgetitle.textContent = `Title: ${knowledge.Title}`;
+
+        cards.appendChild(knowledgecontent);
+        cards.appendChild(knowledgeType);
+        cards.appendChild(knowledgetitle);
+
+        knowledgehistorycard.appendChild(cards);
+       
+    })
+ })
 
 knowledgecontainer.appendChild(type);
 knowledgecontainer.appendChild(knowledgeheading);
@@ -1045,3 +1081,89 @@ fetch("https://brandlens-ai-ptsr.onrender.com/knowledge/counts")
 
 lucide.createIcons();
 });
+const reviewhistory =
+document.getElementById("reviewhistorylink");
+
+reviewhistory.addEventListener("click" , function(event) {
+    event.preventDefault();
+
+    mainContent.innerHTML = "";
+
+    const historycontainer =
+    document.createElement("div");
+
+    historycontainer.className = "history-container";
+
+    const historyheadings = 
+    document.createElement("h1");
+
+    historyheadings.textContent = "Review History";
+
+    const historypara =
+    document.createElement("p");
+    historypara.textContent = "Track previously analyzed content and review outcomes,including compliance scores.detected violations and review details";
+
+
+    const reviewhistoryheading =
+    document.createElement("p");
+    reviewhistoryheading.textContent = "Review History";
+
+    historycontainer.appendChild(historyheadings);
+    historycontainer.appendChild(historypara);
+    historycontainer.appendChild(reviewhistoryheading);
+
+    mainContent.appendChild(historycontainer);
+
+    fetch("http://localhost:3000/reviews" , {
+        method : "GET"
+    })
+    .then(res => res.json())
+    .then(data => {
+        
+        console.log(data);
+
+        data.forEach(review => {
+            const cards =
+            document.createElement("div");
+
+            cards.className = "history-cards";
+
+            const reviewcontent =
+            document.createElement("p");
+
+            reviewcontent.textContent = `content :  ${review.content}`;
+
+            const reviewscore =
+             document.createElement("p");
+            reviewscore.textContent = `score : ${review.score}%`;
+
+            const reviewdate = 
+            document.createElement("p");
+
+            const date = new Date(review.createdAt);
+
+             
+
+            reviewdate.textContent = `Reviewed: ${date.toLocaleString("en-IN", {
+                       day: "2-digit",
+                       month: "short",
+                       year: "numeric",
+                       hour: "2-digit",
+                       minute: "2-digit",
+                       hour12: true,
+                       timeZone: "Asia/Kolkata"
+})}`;
+
+            cards.appendChild(reviewcontent);
+            cards.appendChild(reviewscore);
+            cards.appendChild(reviewdate);
+            historycontainer.appendChild(cards);
+            mainContent.appendChild(historycontainer);
+
+            
+        })
+    })
+
+
+
+})
