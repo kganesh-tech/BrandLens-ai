@@ -763,7 +763,7 @@ workingcard.appendChild(workingpara);
 workingcard.appendChild(flowcontainer);
 
 knowledgehistorycard.appendChild(historyheading);
- fetch("http://localhost:3000/knowledge/history" , {
+ fetch(" https://brandlens-ai-ptsr.onrender.com/knowledge/history" , {
     method : "GET"
  })
  .then(res => res.json())
@@ -1114,7 +1114,7 @@ reviewhistory.addEventListener("click" , function(event) {
 
     mainContent.appendChild(historycontainer);
 
-    fetch("http://localhost:3000/reviews" , {
+    fetch(" https://brandlens-ai-ptsr.onrender.com/reviews" , {
         method : "GET"
     })
     .then(res => res.json())
