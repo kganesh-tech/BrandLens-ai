@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 const { MongoClient } = require("mongodb");
 const { QdrantClient } = require("@qdrant/js-client-rest");
 const { pipeline } = require("@huggingface/transformers");
@@ -12,6 +13,11 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 const client = new MongoClient(process.env.MONGODB_URI);
 const qdrant = new QdrantClient({
