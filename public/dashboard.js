@@ -39,7 +39,9 @@ const reviewbtn =
 document.createElement("button");
 
 reviewbtn.className = "review-btn";
-
+reviewbtn.addEventListener("click" , function() {
+    review.click();
+})
 const reviewtext =
 document.createElement("span");
 
