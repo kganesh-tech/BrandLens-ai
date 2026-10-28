@@ -120,7 +120,7 @@ review.addEventListener("click" , function(event) {
     contentinput.className = "content-input";
 
     contentinput.placeholder =
-    "Paste the content you want BrandLens to review...";
+    "Enter the content you want BrandLens to review...";
 
     contentinput.maxLength = 5000;
 
@@ -150,6 +150,11 @@ review.addEventListener("click" , function(event) {
         console.log("review button is pressed");
 
         const content = contentinput.value;
+         if (!content) {
+           contentinput.focus();
+              contentinput.placeholder = " please enter content before reviewing...";
+            return;
+}
          
 
         reviewcontainer.appendChild(analyzecard);
@@ -621,7 +626,7 @@ knowledge.addEventListener("click" , function(event) {
     const historyheading =
     document.createElement("p");
 
-    historyheading.textContent = "Knowledge items";
+    historyheading.textContent = "Knowledge History";
 
     const workingcard =
     document.createElement("div");
