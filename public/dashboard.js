@@ -275,6 +275,13 @@ resultCard.querySelector(".score-circle").style.background =
    
 
 reviewcontainer.appendChild(resultCard);
+ setTimeout(() => {
+    const successMessage = resultCard.querySelector(".result-success");
+
+    if (successMessage) {
+        successMessage.remove();
+    }
+}, 5000);
 
 const continuebtn = 
 resultCard.querySelector("#continuebtn");
