@@ -153,7 +153,7 @@ review.addEventListener("click" , function(event) {
         reviewcontainer.appendChild(analyzecard);
         lucide.createIcons();
 
-        fetch("http://localhost:3000/review" , {
+        fetch("https://brandlens-ai-ptsr.onrender.com/review" , {
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"
@@ -941,7 +941,7 @@ saveknowledgebtn.addEventListener("click" , function(event) {
 
      console.log(addknowledgedetails);
 
-     fetch("http://localhost:3000/knowledge" , {
+     fetch("https://brandlens-ai-ptsr.onrender.com/knowledge" , {
         method : "POST",
         headers : {
             "Content-Type" : "application/json"
@@ -1025,7 +1025,7 @@ knowledgecontainer.appendChild(knowledgebottom);
 
 
 mainContent.appendChild(knowledgecontainer);
-fetch("http://localhost:3000/knowledge/counts")
+fetch("https://brandlens-ai-ptsr.onrender.com/knowledge/counts")
    
 .then(res => res.json())
 .then(data => {
